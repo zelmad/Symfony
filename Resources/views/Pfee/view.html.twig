@@ -1,0 +1,43 @@
+{# src/ZelmadBundle/Resources/view/Pfee/view.html.twig #}
+
+{% extends "ZelmadBundle::layout.html.twig" %}
+
+{% block title %}
+  Lecture d'une annonce - {{ parent() }}
+{% endblock %}
+
+{% block zelmad_body %}
+
+  <h2>{{ pfee.Sujet }}</h2>
+  <i>Par {{ pfee.societe.nom }}, le {{ pfee.dateDebut|date('d/m/Y') }}</i>
+
+  <div class="well">
+    Ce PFE est à l'endroit des INE3 de l'INPT pour une durée de {{ pfee.duree }} mois. Il s'étendra du {{ pfee.dateDebut|date('d/m/Y') }} au {{ pfee.dateFin|date('d/m/Y') }}.
+  </div>
+  
+<div class="well">
+      {{ pfee.societe.nom }}
+      <ul>
+          <li>Telephone : {{ pfee.societe.tel }}</li>
+          <li>Email : {{ pfee.societe.email }}</li>
+      </ul>
+</div>
+
+  <p>
+    <a href="{{ path('zelmad_home') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la liste
+    </a>
+	{% if pfee.nbreeleve > 0 %}
+		<a href="{{ path('zelmad_choix', {'id': pfee.id}) }}" class="btn btn-default">
+		  <i class="glyphicon glyphicon-edit"></i>
+		  Choisir le PFE
+		</a>
+	{% endif %}	
+    <a href="{{ path('zelmad_delete', {'id': pfee.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      Supprimer l'annonce
+    </a>
+  </p>
+
+{% endblock %}

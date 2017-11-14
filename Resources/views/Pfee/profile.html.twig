@@ -1,0 +1,30 @@
+{# src/ZelmadBundle/Resources/view/Pfee/view.html.twig #}
+
+{% extends "ZelmadBundle::layout.html.twig" %}
+
+{% block title %}
+  Profil - {{ parent() }}
+{% endblock %}
+
+{% block zelmad_body %}
+
+  <h2>Bonjour {{ user.username }}</h2>
+  {% if user.pfee is not null %}
+	<div class="well">
+		  <p>Le sujet du PFE choisis est "{{ user.pfee.sujet }}". Ce PFE durera {{ user.pfee.duree }} mois. Il s'étendra du {{ user.pfee.dateDebut|date('d/m/Y') }} au {{ user.pfee.dateFin|date('d/m/Y') }}.</p>
+		  
+		  <ul>
+			  <li>Société : {{ user.pfee.societe.nom }}</li>
+			  <li>Telephone : {{ user.pfee.societe.tel }}</li>
+			  <li>Email : {{ user.pfee.societe.email }}</li>
+		  </ul>
+	</div>
+   {% else %}
+	<div class="well">
+		  <p>Vous n'avez toujours pas encore choisis de PFE. Faites le <a href="{{ path('zelmad_home') }}">ici</a>.</p>
+	</div>
+   {% endif %}
+
+
+
+{% endblock %}

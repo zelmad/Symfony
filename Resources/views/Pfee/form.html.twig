@@ -1,0 +1,112 @@
+{# src/ZelmadBundle/Resources/views/Pfee/form.html.twig #}
+
+<h3>Formulaire d'ajout de PFE</h3>
+
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+
+  {# Génération du label + error + widget pour un champ. #}
+  {% if form.date is defined %}
+    {{ form_row(form.date) }}
+  {% endif %}
+
+  {# Génération manuelle et éclatée : #}
+  <div class="form-group">
+    {# Génération du label. #}
+    {{ form_label(form.sujet, "Sujet du PFE", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.sujet) }}
+
+    <div class="col-sm-10">
+      {# Génération de l'input. #}
+      {{ form_widget(form.sujet, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  
+  <div class="form-group">
+    {# Génération du label. #}
+    {{ form_label(form.duree, "Durée du PFE (mois)", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.duree) }}
+
+    <div class="col-sm-10">
+      {# Génération de l'input. #}
+      {{ form_widget(form.duree, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  
+  <div class="form-group">
+    {# Génération du label. #}
+    {{ form_label(form.schoolYear, "Année scolaire", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.schoolYear) }}
+
+    <div class="col-sm-10">
+      {# Génération de l'input. #}
+      {{ form_widget(form.schoolYear, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  
+  <div class="form-group">
+    {# Génération du label. #}
+    {{ form_label(form.dateDebut, "Date de début", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.dateDebut) }}
+
+    <div class="col-sm-10">
+      {# Génération de l'input. #}
+      {{ form_widget(form.dateDebut, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  
+  <div class="form-group">
+    {# Génération du label. #}
+    {{ form_label(form.dateFin, "Date de fin", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.dateFin) }}
+
+    <div class="col-sm-10">
+      {# Génération de l'input. #}
+      {{ form_widget(form.dateFin, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    {# Génération du label. #}
+    {{ form_label(form.societe, "Société", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.societe) }}
+
+    <div class="col-sm-10">
+      {# Génération de l'input. #}
+      {{ form_widget(form.societe, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  
+<div class="form-group">
+	<div class="col-sm-5">
+	</div>		
+	<div class="col-sm-2">
+		{{ form_widget(form.save, {'attr': {'class': 'btn btn-danger'}}) }}
+	</div>
+	<div class="col-sm-5">
+	</div>		
+</div>
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>
+
+{# On charge la bibliothèque jQuery. Ici, je la prends depuis le CDN google
+   mais si vous l'avez en local, changez simplement l'adresse. #}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

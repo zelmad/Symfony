@@ -1,0 +1,45 @@
+# src/ZelmadBundle/Resources/config/routing.yml
+
+zelmad_home:
+    path:      /rahhou/list/{page}
+    defaults:
+        _controller: ZelmadBundle:Pfee:index
+        page:        1
+    
+zelmad_view:
+    path:      /rahhou/pfee/{id}
+    defaults:
+        _controller: ZelmadBundle:Pfee:view
+    requirements:
+        id: \d+
+    
+zelmad_choix:
+    path:      /rahhou/choix/{id}
+    defaults:
+        _controller: ZelmadBundle:Pfee:choix
+    requirements:
+        id: \d+
+    
+zelmad_profile:
+    path:      /rahhou/profil
+    defaults:
+        _controller: ZelmadBundle:Pfee:profile
+
+zelmad_add:
+    path:      /admin/pfee/add
+    defaults:
+        _controller: ZelmadBundle:Pfee:add
+
+zelmad_edit:
+    path:      /admin/pfee/edit/{id}
+    defaults:
+        _controller: ZelmadBundle:Pfee:edit
+    requirements:
+        id: \d+
+
+zelmad_delete:
+    path:      /admin/pfee/delete/{id}
+    defaults:
+        _controller: ZelmadBundle:Pfee:delete
+    requirements:
+        id: \d+
